@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<style type="text/css">
+	.buttonText {
+		width:100%;
+		font-size:16px;
+	}
+	
+	.container {
+		width:100%;
+	}
+	
+	.buttonContainer {
+		background: url(./bg_main_all.gif);
+		width:210px;
+		height:143px;
+		padding:0px;
+	}	
+		
+	.buttonImage {
+		margin-left:13px;
+		margin-top:40px;
+	}
+	
+	.genButton{
+		font-size:16px;
+		float: left;
+	}
+	
+	.infoContainer{
+		font-size:16px;
+		margin-top:4px;
+		margin-left:130px;
+	}
+
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+	function genButton(){		
+		$('#buttonContainer').html('<a href="../cgi-bin/button-gen/main.py?text='+encodeURIComponent($('#buttonText').val())+'"><img class="buttonImage" src="../cgi-bin/button-gen/main.py?text='+encodeURIComponent($('#buttonText').val())+'&rng='+Math.random()+'"></img></a>');
+	}
+</script>
+</head>
+<body>
+<table class="container">
+	<tr><td><input class="buttonText" id="buttonText" name="text" type="text"/></td></tr>
+	<tr><td><input class="genButton" id="genButton" type="button" value="Gen button"/><div class="infoContainer"><span >Символ "_" используется как неразрывный пробел. Для скачивания изображения нужно кликнуть по нему.</span></div></td></tr>
+	<tr><td><div class="buttonContainer" id="buttonContainer"></div></td></tr>
+</table>
+
+<script type="text/javascript">
+	$(document).ready(function (event) {
+		$('#genButton').click(genButton);
+	});
+</script>
+</body>
+</html>
